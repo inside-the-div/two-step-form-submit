@@ -184,9 +184,13 @@
      $text .= '<br>';
      $text .= '<br>';
 
-     $text .='Income Source-------------------------------Income Total';
-     $text .= '<br>';
-     $text .= '<br>';
+
+     if($_POST['income-value'] != ''){
+        $text .='Income Source-------------------------------Income Total';
+        $text .= '<br>';
+        $text .= '<br>';
+     }
+     
      if($_POST['income-1'] != ''){
       $text .= 'Alimony or other Spousal Support     '.$_POST['income-1'];
       $text .= '<br>';  
@@ -369,14 +373,16 @@
      $text .= '<br>';
      $text .= '<br>';
 
-
+     $other = 0;
      for($i=1;$i<8;$i++){
 
         if($_POST['o-'.$i.'-f-name'] != ''){
+
+          $other++;
           $text .= '<br>';
           $text .= '<br>';
           $text .= '<hr>';
-          $text .= 'Other Member';
+          $text .= $other.'. Other Member';
           $text .= '<br>';
           $text .= '<hr>';
           $text .= '<br>';
@@ -597,7 +603,7 @@
 
               <div class="row mt-2">
                 <div class="col-12 col-lg-6">
-                  Driver License No <span class="text-danger">*</span>  <input class="form-control input-field" type="text" required name="d_license">
+                  Driver License No <span class="text-danger">*</span> (<span class="text-info">maximum 9 digit</span>) <input class="form-control input-field" type="number" required name="d_license" id="d_license">
                 </div>
                 <div class="col-12 col-lg-6">
                    Expiration  <span class="text-danger">*</span> <input class="form-control input-field" type="date"  onchange="handler(event)"   required name="expiration" data-date="check">
@@ -822,6 +828,7 @@
                     <tr>
                       <td colspan="6" >
                          Income: (<span class="text-info">Optional</span>)<br>  Please provide actual monthly dollar amount for all that  apply.
+                         <input type="hidden" name="income-value" value="" id="income-value">
                       </td>
                     </tr>
 
@@ -849,7 +856,7 @@
                       </td>
 
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-1">
+                          <input type="number" class="income-field"  name="income-1">
                         </td>
 
 
@@ -857,7 +864,7 @@
                           Public Assistance 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-2">
+                          <input type="number" class="income-field"  name="income-2">
                         </td>
                       </tr>
 
@@ -869,7 +876,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-3" >
+                          <input type="number" class="income-field"  name="income-3" >
                         </td>
 
 
@@ -877,7 +884,7 @@
                           Rental Income 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-4" >
+                          <input type="number" class="income-field"  name="income-4" >
                         </td>
                       </tr>
 
@@ -888,7 +895,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-5" >
+                          <input type="number" class="income-field"  name="income-5" >
                         </td>
 
 
@@ -896,7 +903,7 @@
                           Retirement Income from Social Security 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-6" >
+                          <input type="number" class="income-field"  name="income-6" >
                         </td>
                       </tr>             
                       <tr>
@@ -906,7 +913,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-7" >
+                          <input type="number" class="income-field"  name="income-7" >
                         </td>
 
 
@@ -914,7 +921,7 @@
                           Royalties
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-8" >
+                          <input type="number" class="income-field"  name="income-8" >
                         </td>
                       </tr>             
 
@@ -925,7 +932,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-7" >
+                          <input type="number" class="income-field"  name="income-7" >
                         </td>
 
 
@@ -933,7 +940,7 @@
                           Royalties
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-8" >
+                          <input type="number" class="income-field"  name="income-8" >
                         </td>
                       </tr>
 
@@ -944,7 +951,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-9" >
+                          <input type="number" class="income-field"  name="income-9" >
                         </td>
 
 
@@ -952,7 +959,7 @@
                           Short Term Disability
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-10" >
+                          <input type="number" class="income-field"  name="income-10" >
                         </td>
                       </tr>
 
@@ -963,7 +970,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-11" >
+                          <input type="number" class="income-field"  name="income-11" >
                         </td>
 
 
@@ -971,7 +978,7 @@
                           Social Security Disability Income (SSDI)
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-12" >
+                          <input type="number" class="income-field"  name="income-12" >
                         </td>
                       </tr>
 
@@ -982,7 +989,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-13" >
+                          <input type="number" class="income-field"  name="income-13" >
                         </td>
 
 
@@ -990,7 +997,7 @@
                           State Assistance (IS General)
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-14" >
+                          <input type="number" class="income-field"  name="income-14" >
                         </td>
                       </tr>
 
@@ -1001,7 +1008,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-15" >
+                          <input type="number" class="income-field"  name="income-15" >
                         </td>
 
 
@@ -1009,7 +1016,7 @@
                           Supplemental Security Income (SSI)
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-16" >
+                          <input type="number" class="income-field"  name="income-16" >
                         </td>
                       </tr>             
 
@@ -1020,7 +1027,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-17" >
+                          <input type="number" class="income-field"  name="income-17" >
                         </td>
 
 
@@ -1028,7 +1035,7 @@
                           TANF
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-18" >
+                          <input type="number" class="income-field"  name="income-18" >
                         </td>
                       </tr>
 
@@ -1040,7 +1047,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-19" >
+                          <input type="number" class="income-field"  name="income-19" >
                         </td>
 
 
@@ -1048,7 +1055,7 @@
                           Unemployment Insurance
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-20" >
+                          <input type="number" class="income-field"  name="income-20" >
                         </td>
                       </tr>
 
@@ -1061,7 +1068,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-21" >
+                          <input type="number" class="income-field"  name="income-21" >
                         </td>
 
 
@@ -1069,7 +1076,7 @@
                           VA Non-Service Connected Disability
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-22" >
+                          <input type="number" class="income-field"  name="income-22" >
                         </td>
                       </tr>
 
@@ -1080,7 +1087,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-23" >
+                          <input type="number" class="income-field"  name="income-23" >
                         </td>
 
 
@@ -1088,7 +1095,7 @@
                           VA Service Connected Disability 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-24" >
+                          <input type="number" class="income-field"  name="income-24" >
                         </td>
                       </tr>
 
@@ -1099,7 +1106,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-25" >
+                          <input type="number" class="income-field"  name="income-25" >
                         </td>
 
 
@@ -1107,7 +1114,7 @@
                           Veteran’s Benefits
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-26" >
+                          <input type="number" class="income-field"  name="income-26" >
                         </td>
                       </tr>
 
@@ -1118,7 +1125,7 @@
 
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-27" >
+                          <input type="number" class="income-field"  name="income-27" >
                         </td>
 
 
@@ -1126,7 +1133,7 @@
                           Worker’s Compensation
                         </td>
                         <td colspan="1"  class="text-center">
-                          <input type="number" class=""  name="income-28" >
+                          <input type="number" class="income-field"  name="income-28" >
                         </td>
                       </tr>
 
@@ -1154,17 +1161,17 @@
                     <tr>
                       <th colspan="2"  >
                         Total <span class="text-danger">*</span>
-                        <input type="text" class="input-field" required name="t_food">
+                        <input type="number" class="input-field" required name="t_food">
                       </th>
 
                       <th colspan="2"  >
                         Total <span class="text-danger">*</span>
-                        <input type="text" class="input-field" required name="t_Shelter">
+                        <input type="number" class="input-field" required name="t_Shelter">
                       </th>
 
                       <th colspan="2"  >
                         Total <span class="text-danger">*</span>
-                        <input type="text" class="input-field" required name="t_Utilities">
+                        <input type="number" class="input-field" required name="t_Utilities">
                       </th>
                     </tr>
 
@@ -1791,8 +1798,31 @@
 
 
       function validation(){
-        var allFields = $(".input-field");
+        
 
+
+
+
+        var m_zip = $("#m_zip");
+
+        if(m_zip.val() != ''){
+          if(m_zip.val().length > 5){
+             return m_zip;
+          }
+        }
+
+        var phone = $("#phone");
+
+        if(phone.val() != ''){
+          if(phone.val().length > 9){
+            return phone;
+          }
+        }
+
+
+
+      
+        var allFields = $(".input-field");
         for(var i = 0; i < allFields.length; i++){
 
           if($(allFields[i]).val() == ''){
@@ -1805,19 +1835,36 @@
             }
           }
 
-          if($(allFields[i]).attr('id') == 'phone' || $(allFields[i]).attr('id') == 'call'){
+          if($(allFields[i]).attr('id') == 'call'){
             if($(allFields[i]).val().length != 11 ){
                return $(allFields[i]);
             }
           }
 
-          if($(allFields[i]).attr('id') == 'p_zip' || $(allFields[i]).attr('id') == 'm_zip'){
+          if($(allFields[i]).attr('id') == 'p_zip'){
             if($(allFields[i]).val().length > 5 ){
                return $(allFields[i]);
             }
           }
 
+          if($(allFields[i]).attr('id') == 'd_license'){
+            if($(allFields[i]).val().length > 9 ){
+               return $(allFields[i]);
+            }
+          }
+
         }
+
+
+
+
+
+
+
+
+
+
+
 
         return true;
       }
@@ -1839,6 +1886,17 @@
         e.preventDefault();
         var element = validation()
         if( element == true){
+
+
+          var allIncome = $(".income-field");
+          for(var i = 0; i< allIncome.length; i++){
+            if($(allIncome[i]).val() != ''){
+              $("#income-value").val("not empty");
+            }
+          }
+
+
+
           $("#other-info-1").show();
           $("#personal-info").hide();
         }else{
