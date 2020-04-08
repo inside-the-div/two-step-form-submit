@@ -476,6 +476,7 @@
 <head>
   <meta charset="UTF-8">
   <title>personal information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/style.css">
 
@@ -525,14 +526,14 @@
               <div class="row mt-3">
                 <div class="col-lg-6">
                   Social Security Number <span class="text-danger">*</span>
-                  (<span class="text-info">maximum 9 digit</span>)
+                  (<span class="text-info">maximum 10 digit</span>)
                   <br>
-                  <input type="number" id="s_security" required name="security" class="form-control input-field" >
+                  <input type="number" maxlength="10" id="s_security" required name="security" class="form-control input-field" >
                 </div>
 
                 <div class="col-lg-6">
                   Date of birth: <span class="text-danger">*</span><br>
-                  <input class="form-control input-field date"  type="date"  onchange="handler(event)"   name="a_date_of_birth" >
+                  <input id="date_of_birth" class="form-control input-field date data-of-birth"  type="date"  onchange="handler(event)"   name="a_date_of_birth" >
                 </div>
               </div>
 
@@ -543,28 +544,28 @@
                   Physical Address<span class="text-danger">*</span><br>
 
                   <div class="row mt-2">
-                    <div class="col-4">Address line 1</div>
+                    <div class="col-4">Address line 1 <span class="text-danger">*</span></div>
                     <div class="col-8"><input type="text" required name="p_l_1" class="form-control input-field"></div>
                   </div>
 
                   <div class="row mt-2">
-                    <div class="col-4">Address line 2</div>
+                    <div class="col-4">Address line 2 <span class="text-danger">*</span></div>
                     <div class="col-8"><input type="text"  name="p_l_2" class="form-control"></div>
                   </div>
 
                   <div class="row mt-2">
-                    <div class="col-4">City</div>
+                    <div class="col-4">City <span class="text-danger">*</span></div>
                     <div class="col-8"><input type="text" required name="p_city" class="form-control input-field"></div>
                   </div>
 
                   <div class="row mt-2">
-                    <div class="col-4">State</div>
+                    <div class="col-4">State <span class="text-danger">*</span></div>
                     <div class="col-8"><input type="text" required name="p_state" class="form-control input-field"></div>
                   </div>
 
                   <div class="row mt-2">
-                    <div class="col-4">Zipcode (<span class="text-info">Max: 5 digit</span>)</div>
-                    <div class="col-8"><input type="number" required  class="form-control input-field" name="p_zip" id="p_zip"></div>
+                    <div class="col-4">Zipcode <span class="text-danger">*</span> (<span class="text-info">Max: 5 digit</span>)</div>
+                    <div class="col-8"><input maxlength="5" type="number" required  class="form-control input-field" name="p_zip" id="p_zip"></div>
                   </div>
                   
                 </div>
@@ -595,7 +596,7 @@
 
                   <div class="row mt-2">
                     <div class="col-4">Zipcode (<span class="text-info">Max: 5 digit</span>)</div>
-                    <div class="col-8"><input type="number"  name="m_zip" class="form-control" id="m_zip"></div>
+                    <div class="col-8"><input maxlength="5" type="number"  name="m_zip" class="form-control" id="m_zip"></div>
                   </div>
 
                 </div>
@@ -603,23 +604,23 @@
 
               <div class="row mt-2">
                 <div class="col-12 col-lg-6">
-                  Driver License No <span class="text-danger">*</span> (<span class="text-info">maximum 9 digit</span>) <input class="form-control input-field" type="number" required name="d_license" id="d_license">
+                  Driver License No <span class="text-danger">*</span> (<span class="text-info">maximum 9 digit</span>) <input class="form-control input-field" maxlength="9" type="number" required name="d_license" id="d_license">
                 </div>
                 <div class="col-12 col-lg-6">
-                   Expiration  <span class="text-danger">*</span> <input class="form-control input-field" type="date"  onchange="handler(event)"   required name="expiration" data-date="check">
+                   Expiration   <span class="text-danger">*</span> <input id="d_license_exp" class="form-control input-field" type="date"  onchange="handler(event)"   required name="expiration" data-date="check">
                 </div>
               </div>
 
               <div class="row mt-2">
                 <div class="col-12 col-lg-4">
-                  Home phone (<span class="text-info"> optional / Must: 11 digit</span>) <input class="form-control " type="text"  name="phone" id="phone">
+                  Home phone (<span class="text-info"> optional / Must: 11 digit</span>) <input maxlength="11" class="form-control " type="text"  name="phone" id="phone">
                 </div>
                 <div class="col-12 col-lg-4">
-                   Call <span class="text-danger">*</span> (<span class="text-info">Must: 11 digit</span>) <input class="form-control input-field" type="text" required name="call" id="call">
+                   Call <span class="text-danger">*</span> (<span class="text-info">Must: 11 digit</span>) <input maxlength="11" class="form-control input-field" type="text" required name="call" id="call">
                 </div>
 
                 <div class="col-12 col-lg-4">
-                   Email <span class="text-danger">*</span> : <input class="form-control input-field" type="text" required name="email">
+                   Email <span class="text-danger">*</span> : <input class="form-control input-field" type="email" required name="email">
                 </div>
               </div>
 
@@ -821,7 +822,7 @@
                 
 
               <div class="row mt-2">
-                <div class="col-12">
+                <div class="col-12 table-responsive">
                   
 
                 <table  class="table">
@@ -1140,7 +1141,7 @@
 
                     <tr>
                       <td colspan="6"  >
-                        Food Stamps <span class="text-danger">*</span>  <input type="text" class="input-field" required name="Food_Stamps">
+                        Food Stamps   <input type="text" class="" required name="Food_Stamps">
                       </td>
                     </tr>
 
@@ -1160,17 +1161,17 @@
 
                     <tr>
                       <th colspan="2"  >
-                        Total <span class="text-danger">*</span>
-                        <input type="number" class="input-field" required name="t_food">
+                        Total 
+                        <input type="number" class="" required name="t_food">
                       </th>
 
                       <th colspan="2"  >
-                        Total <span class="text-danger">*</span>
-                        <input type="number" class="input-field" required name="t_Shelter">
+                        Total 
+                        <input type="number" class="" required name="t_Shelter">
                       </th>
 
                       <th colspan="2"  >
-                        Total <span class="text-danger">*</span>
+                        Total 
                         <input type="number" class="input-field" required name="t_Utilities">
                       </th>
                     </tr>
@@ -1251,7 +1252,7 @@
 
                         <div class="col-12 mt-1">
                           Date of birth: <br>
-                          <input class="form-control "  type="date"  onchange="handler(event)"   name="o-1-date_of_birth">
+                          <input class="form-control data-of-birth"  type="date"  onchange="handler(event)"   name="o-1-date_of_birth">
                         </div>
 
                         <div class="col-12 mt-1">
@@ -1314,7 +1315,7 @@
 
                         <div class="col-12 mt-1">
                           Date of birth: <br>
-                          <input class="form-control "  type="date"  onchange="handler(event)"   name="o-2-date_of_birth">
+                          <input class="form-control data-of-birth"  type="date"  onchange="handler(event)"   name="o-2-date_of_birth">
                         </div>
 
                         <div class="col-12 mt-1">
@@ -1380,7 +1381,7 @@
 
                         <div class="col-12 mt-1">
                           Date of birth: <br>
-                          <input class="form-control "  type="date"  onchange="handler(event)"   name="o-3-date_of_birth">
+                          <input class="form-control data-of-birth"  type="date"  onchange="handler(event)"   name="o-3-date_of_birth">
                         </div>
 
                         <div class="col-12 mt-1">
@@ -1446,7 +1447,7 @@
 
                         <div class="col-12 mt-1">
                           Date of birth: <br>
-                          <input class="form-control "  type="date"  onchange="handler(event)"   name="o-4-date_of_birth">
+                          <input class="form-control data-of-birth"  type="date"  onchange="handler(event)"   name="o-4-date_of_birth">
                         </div>
 
                         <div class="col-12 mt-1">
@@ -1513,7 +1514,7 @@
 
                         <div class="col-12 mt-1">
                           Date of birth: <br>
-                          <input class="form-control "  type="date"  onchange="handler(event)"   name="o-5-date_of_birth">
+                          <input class="form-control data-of-birth"  type="date"  onchange="handler(event)"   name="o-5-date_of_birth">
                         </div>
 
                         <div class="col-12 mt-1">
@@ -1581,7 +1582,7 @@
 
                         <div class="col-12 mt-1">
                           Date of birth: <br>
-                          <input class="form-control"  type="date"  onchange="handler(event)"   name="o-6-date_of_birth">
+                          <input class="form-control data-of-birth"  type="date"  onchange="handler(event)"   name="o-6-date_of_birth">
                         </div>
 
                         <div class="col-12 mt-1">
@@ -1770,39 +1771,52 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script>
+  
+      
+// date of birth max limit yesterday
+
+    var allDateOfBirth = document.getElementsByClassName("data-of-birth");
+    var date = new Date();
+    date.setDate(date.getDate()-1);
+    var yesterday =  date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+
+    for(var i = 0; i < allDateOfBirth.length; i++){
+      allDateOfBirth[i].max =  yesterday;
+    }
+
+// Driver License Expiration limit min tomorrow
+    var date = new Date();
+    date.setDate(date.getDate()+1);
+    var tomorrow =  date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+    document.getElementById("d_license_exp").min =  tomorrow;
 
 
+// date year length check
     function handler(e){
 
       if(e.target.value.length > 10){
         e.target.classList.add("border");
         e.target.value = '';
       }else{
-         e.target.classList.remove("border");
+        e.target.classList.remove("border");
       }
     }
 
 
-
-
-
     $(document).ready(function(){
 
-
+      // set today 
        var today = new Date();
        document.getElementById("today-date").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
-       
 
+
+       // hide other option 
       $("#other-info-1").hide();
      
 
 
       function validation(){
         
-
-
-
-
         var m_zip = $("#m_zip");
 
         if(m_zip.val() != ''){
@@ -1818,8 +1832,6 @@
             return phone;
           }
         }
-
-
 
       
         var allFields = $(".input-field");
@@ -1855,31 +1867,8 @@
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
         return true;
       }
-
-
-      // function validation_2(){
-      //   var allFields = $(".input-field-o-1");
-      //   for(var i = 0; i < allFields.length; i++){
-      //     if($(allFields[i]).val() == ''){
-      //        return $(allFields[i]);
-      //     }
-      //   }
-      //   return true;
-      // }
-
 
 
       $("#secondPage-btn").click(function(e){
@@ -1911,30 +1900,14 @@
       })
 
 
-
       $("#prev-to-personal").click(function(e){
          e.preventDefault();
           $("#other-info-1").hide();
           $("#personal-info").show();
       })
 
-
-
-
-
-
     })
   </script>
-
-
-
-
-
-
-
-
-
-
 
 
 
