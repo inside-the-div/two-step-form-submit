@@ -167,6 +167,184 @@
      $text .= 'Ethnicity:  '.$_POST['Ethnicity'];
      $text .= '<br>';
      $text .= '<br>';
+
+
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .='Income Source-------------------------------Income Total';
+     $text .= '<br>';
+     $text .= '<br>';
+     if($_POST['income-1'] != ''){
+      $text .= 'Alimony or other Spousal Support     '.$_POST['income-1'];
+      $text .= '<br>';  
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-2'] != ''){
+      $text .= 'Public Assistance     '.$_POST['income-2'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-3'] != ''){
+      $text .= 'Black Lung     '.$_POST['income-3'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-4'] != ''){
+      $text .= 'Rental Income     '.$_POST['income-4'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-5'] != ''){
+      $text .= 'Child Support     '.$_POST['income-5'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-6'] != ''){
+      $text .= 'Retirement Income from Social Security     '.$_POST['income-6'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-7'] != ''){
+      $text .= 'Earnings     '.$_POST['income-7'];
+      $text .= '<br>';
+      $text .= '<br>';  
+     }
+
+     if($_POST['income-8'] != ''){
+      $text .= 'Royalties     '.$_POST['income-8'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-9'] != ''){
+      $text .= 'Royalties     '.$_POST['income-9'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-10'] != ''){
+      $text .= 'Educational Assistance     '.$_POST['income-10']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-11'] != ''){
+      $text .= 'Short Term Disability     '.$_POST['income-11'];
+      $text .= '<br>';
+      $text .= '<br>';  
+     }
+     
+     if($_POST['income-12'] != ''){
+      $text .= 'EITC     '.$_POST['income-12'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-13'] != ''){
+      $text .= 'Social Security Disability Income (SSDI)     '.$_POST['income-13']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-14'] != ''){
+      $text .= 'Estate/Trust     '.$_POST['income-14'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-15'] != ''){
+      $text .= 'State Assistance (IS General)     '.$_POST['income-15'];  
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+
+      
+     if($_POST['income-16'] != ''){
+      $text .= 'Supplemental Security Income (SSI)     '.$_POST['income-16']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-17'] != ''){
+      $text .= 'Long Term Disability     '.$_POST['income-17'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-18'] != ''){
+      $text .= 'TANF     '.$_POST['income-18'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-19'] != ''){
+      $text .= 'Non Cash Benefits     '.$_POST['income-19'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-20'] != ''){
+      $text .= 'Unemployment Insurance     '.$_POST['income-20']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-21'] != ''){
+      $text .= 'Other Income Source     '.$_POST['income-21'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-22'] != ''){
+      $text .= 'VA Non-Service Connected Disability     '.$_POST['income-22'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-23'] != ''){
+      $text .= 'Outside Assistance     '.$_POST['income-23'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-24'] != ''){
+      $text .= 'VA Service Connected Disability     '.$_POST['income-24'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-25'] != ''){
+      $text .= 'Pension/Retirement     '.$_POST['income-25']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-26'] != ''){
+      $text .= "Veteran's Benefits     ".$_POST['income-26']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-27'] != ''){
+      $text .= 'Private Disability Insurance     '.$_POST['income-27'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-28'] != ''){
+      $text .= 'Worker’s Compensation     '.$_POST['income-28'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
       
 
 
