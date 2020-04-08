@@ -435,8 +435,8 @@
 
      session_start();
      $_SESSION['text'] = $text;
-     $_SESSION['name'] = $a_f_name;
-     $_SESSION['call'] = $call;
+     $_SESSION['name'] = $a_f_name.'_'.$a_l_name;
+     $_SESSION['call'] = $_POST['security'];
      header('Location: confirm.php');
 
          
@@ -514,9 +514,9 @@
               <div class="row mt-3">
                 <div class="col-lg-6">
                   Social Security Number <span class="text-danger">*</span>
-                  (<span class="text-info">maximum 10 digit</span>)
+                  (<span class="text-info">maximum 9 digit</span>)
                   <br>
-                  <input type="number" maxlength="10" id="s_security" required name="security" class="form-control input-field" >
+                  <input type="number" maxlength="9" id="s_security" required name="security" class="form-control input-field" >
                 </div>
 
                 <div class="col-lg-6">
