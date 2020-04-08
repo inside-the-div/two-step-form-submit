@@ -1,3 +1,470 @@
+<?php 
+
+  if(isset($_POST['submit'])){
+     // print_r($_POST);
+
+    $a_f_name = $_POST['f-name'];
+    $a_m_name = $_POST['m-name'];
+    $a_l_name = $_POST['l-name'];
+
+    if($a_m_name != ''){
+      $applicant_name = $a_f_name.' '.$a_m_name.' '.$a_l_name;
+    }else{
+      $applicant_name = $a_f_name.' '.$a_l_name;
+    }
+
+    
+    // end applicant name 
+
+    $p_l_1 = $_POST['p_l_1'];
+    $p_l_2 = $_POST['p_l_2'];
+    $physical_address = $p_l_1.'<br>'.$p_l_2;
+    $physical_address .= '<br>';
+    $physical_address .= 'City: '.$_POST['p_city'];
+    $physical_address .= '<br>';
+    $physical_address .= 'State: '.$_POST['p_state'];
+    $physical_address .= '<br>';
+    $physical_address .= 'Zipcode: '.$_POST['p_zip'];
+    //physical address
+
+    $m_l_1 = $_POST['m_l_1'];
+    $m_l_2 = $_POST['m_l_2'];
+    $mailing_address = '';
+
+    if($m_l_1 != '' || $m_l_2 != ''){
+      $mailing_address = $m_l_1.'<br>'.$m_l_2;
+      $mailing_address .= '<br>';
+    }
+    
+    if($_POST['m_city'] != ''){
+      $mailing_address .= 'City: '.$_POST['m_city'];
+      $mailing_address .= '<br>';
+    }
+
+    if($_POST['m_state'] != ''){
+      $mailing_address .= 'State: '.$_POST['m_state'];
+      $mailing_address .= '<br>';
+    }
+
+    if($_POST['m_zip'] != ''){
+      $mailing_address .= 'Zipcode: '.$_POST['m_zip'];
+    }
+   
+    
+    
+    // //milling address
+
+
+     $text = "";
+     $text .= "Personal information                 ".$_POST['today'];
+     $text .= '<br>';
+     $text .= '<hr>';
+
+     $text .= "Applicant First Name: ".$applicant_name;
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .= "Date of birth: ".$_POST['a_date_of_birth'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .= "Social Security Number: ".$_POST['security'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .='Phycial Address: <br>'.$physical_address;
+     $text .= '<br>';
+     $text .= '<br>';
+     if($mailing_address != ''){
+      $text .='Mailing Address <br>: '.$mailing_address;
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     $text .="Driver's License: ".$_POST['d_license'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .='Expiration: '.$_POST['expiration'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     if($_POST['phone'] != ''){
+      $text .='Home Phone: '.$_POST['phone'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     $text .=' Call: '.$_POST['call'];
+     $call = $_POST['call'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .=' Email: '.$_POST['email'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Demographics ';
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Gender: '.$_POST['gender'];
+     $text .= '<br>';
+     $text .= '<br>'; 
+
+     $text .= 'Disabling Condition: '.$_POST['Disabling_Condition'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Marital Status: '.$_POST['Marital_Status'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     if($_POST['Primary_Language'] != ''){
+       $text .= 'Primary Language: '.$_POST['Primary_Language'];
+       $text .= '<br>';
+       $text .= '<br>';
+    }
+
+     $text .= 'Household Type: '.$_POST['Household_Type'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .= 'Housing Type: '.$_POST['Housing_Type'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .= 'Education Highest Grade Completed: '.$_POST['Education_Highest_Grade_Completed'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .= 'Military Status: '.$_POST['Military_Status'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .='Direct Purchase: '.$_POST['Direct_Purchase'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .='Employment Based: '.$_POST['Employment_Based'];   
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .='Medicaid: '.$_POST['Medicaid'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .='Medicare: '.$_POST['Medicare'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .='Military Health Care: '.$_POST['Military_Health_Care'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .='State Children s Health Insurance: '.$_POST['S_Health_Insurance'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     
+     $text .='State Health Insurance Adult: '.$_POST['State_Health_Insurance_Adult'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Race:  '.$_POST['Race'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Ethnicity:  '.$_POST['Ethnicity'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .='Income Source-------------------------------Income Total';
+     $text .= '<br>';
+     $text .= '<br>';
+     if($_POST['income-1'] != ''){
+      $text .= 'Alimony or other Spousal Support     '.$_POST['income-1'];
+      $text .= '<br>';  
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-2'] != ''){
+      $text .= 'Public Assistance     '.$_POST['income-2'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-3'] != ''){
+      $text .= 'Black Lung     '.$_POST['income-3'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-4'] != ''){
+      $text .= 'Rental Income     '.$_POST['income-4'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-5'] != ''){
+      $text .= 'Child Support     '.$_POST['income-5'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-6'] != ''){
+      $text .= 'Retirement Income from Social Security     '.$_POST['income-6'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-7'] != ''){
+      $text .= 'Earnings     '.$_POST['income-7'];
+      $text .= '<br>';
+      $text .= '<br>';  
+     }
+
+     if($_POST['income-8'] != ''){
+      $text .= 'Royalties     '.$_POST['income-8'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-9'] != ''){
+      $text .= 'Royalties     '.$_POST['income-9'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-10'] != ''){
+      $text .= 'Educational Assistance     '.$_POST['income-10']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-11'] != ''){
+      $text .= 'Short Term Disability     '.$_POST['income-11'];
+      $text .= '<br>';
+      $text .= '<br>';  
+     }
+     
+     if($_POST['income-12'] != ''){
+      $text .= 'EITC     '.$_POST['income-12'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-13'] != ''){
+      $text .= 'Social Security Disability Income (SSDI)     '.$_POST['income-13']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-14'] != ''){
+      $text .= 'Estate/Trust     '.$_POST['income-14'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-15'] != ''){
+      $text .= 'State Assistance (IS General)     '.$_POST['income-15'];  
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-16'] != ''){
+      $text .= 'Supplemental Security Income (SSI)     '.$_POST['income-16']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-17'] != ''){
+      $text .= 'Long Term Disability     '.$_POST['income-17'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-18'] != ''){
+      $text .= 'TANF     '.$_POST['income-18'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-19'] != ''){
+      $text .= 'Non Cash Benefits     '.$_POST['income-19'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-20'] != ''){
+      $text .= 'Unemployment Insurance     '.$_POST['income-20']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-21'] != ''){
+      $text .= 'Other Income Source     '.$_POST['income-21'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-22'] != ''){
+      $text .= 'VA Non-Service Connected Disability     '.$_POST['income-22'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-23'] != ''){
+      $text .= 'Outside Assistance     '.$_POST['income-23'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     if($_POST['income-24'] != ''){
+      $text .= 'VA Service Connected Disability     '.$_POST['income-24'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-25'] != ''){
+      $text .= 'Pension/Retirement     '.$_POST['income-25']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-26'] != ''){
+      $text .= "Veteran's Benefits     ".$_POST['income-26']; 
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+     
+     if($_POST['income-27'] != ''){
+      $text .= 'Private Disability Insurance     '.$_POST['income-27'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+      
+     if($_POST['income-28'] != ''){
+      $text .= 'Worker’s Compensation     '.$_POST['income-28'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+
+     $text .='Total Food:  '.$_POST['t_food'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .='Total Shelter:  '.$_POST['t_Shelter'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .= 'Total Utilities:  '.$_POST['t_Utilities'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .= 'Dwelling Type:  '.$_POST['Dwelling_Type'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     for($i=1;$i<8;$i++){
+
+        if($_POST['o-'.$i.'-f-name'] != ''){
+          $text .= '<br>';
+          $text .= '<br>';
+          $text .= '<hr>';
+          $text .= 'Other Member';
+          $text .= '<br>';
+          $text .= '<hr>';
+          $text .= '<br>';
+          $name = $_POST['o-'.$i.'-f-name'];
+        }
+
+        if($_POST['o-'.$i.'-m-name'] != ''){
+          $name = $name.' '.$_POST['o-'.$i.'-m-name'];
+        }
+        if($_POST['o-'.$i.'-l-name'] != ''){
+          $name = $name.' '.$_POST['o-'.$i.'-l-name'];
+        }
+
+        if($name != ''){
+          $text .= 'Name: '.$name;
+        }
+        
+
+        if($_POST['o-'.$i.'-gender'] != ''){
+          $text .= '<br>';
+          $text .= '<br>';
+          $text .= 'Gender: '.$_POST['o-'.$i.'-gender'];
+        }
+
+
+        if($_POST['o-'.$i.'-date_of_birth'] != ''){
+          $text .= '<br>';
+          $text .= '<br>';
+          $text .= 'Date of birth: '.$_POST['o-'.$i.'-date_of_birth'];
+        }
+
+        if($_POST['o-'.$i.'-Disabling_Condition'] != ''){
+          $text .= '<br>';
+          $text .= '<br>';
+          $text .= 'Disabling Condition: '.$_POST['o-'.$i.'-Disabling_Condition'];
+        }
+
+        if($_POST['o-'.$i.'-Marital_Status'] != ''){
+          $text .= '<br>';
+          $text .= '<br>';
+          $text .= 'Marital Status: '.$_POST['o-'.$i.'-Marital_Status'];
+        }
+
+        $name = '';
+
+     }
+
+     $text .= '<br>';
+
+
+
+     require('WriteHTML.php');
+
+     
+     $name = 'C:/xampp/htdocs/pdf/nasir/'.$a_f_name.'_'.substr($call,7).'.pdf';
+
+
+     $pdf = new PDF_HTML();
+     // First page
+     $pdf->AddPage();
+     $pdf->SetFont('Arial','',16);
+     $pdf->WriteHTML($text);
+     $pdf->Output($name,'F');
+
+
+
+
+
+         
+  }
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +476,7 @@
 </head>
 <body>
   
-  
-  
+
   <div class="container my-5">
     <div class="row">
 
@@ -77,7 +543,7 @@
 
                   <div class="row mt-2">
                     <div class="col-4">Address line 2</div>
-                    <div class="col-8"><input type="text"  name="p_l_1" class="form-control"></div>
+                    <div class="col-8"><input type="text"  name="p_l_2" class="form-control"></div>
                   </div>
 
                   <div class="row mt-2">
@@ -92,7 +558,7 @@
 
                   <div class="row mt-2">
                     <div class="col-4">Zipcode (<span class="text-info">Max: 5 digit</span>)</div>
-                    <div class="col-8"><input type="number" required name="p_zipcode" class="form-control input-field" name="p_zip" id="p_zip"></div>
+                    <div class="col-8"><input type="number" required  class="form-control input-field" name="p_zip" id="p_zip"></div>
                   </div>
                   
                 </div>
@@ -123,7 +589,7 @@
 
                   <div class="row mt-2">
                     <div class="col-4">Zipcode (<span class="text-info">Max: 5 digit</span>)</div>
-                    <div class="col-8"><input type="number"  name="m_zipcode" class="form-control" id="m_zip"></div>
+                    <div class="col-8"><input type="number"  name="m_zip" class="form-control" id="m_zip"></div>
                   </div>
 
                 </div>
@@ -792,7 +1258,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-1-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-1-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -855,7 +1321,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-2-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-2-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -921,7 +1387,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-3-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-3-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -987,7 +1453,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-4-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-4-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -1054,7 +1520,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-5-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-5-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -1122,7 +1588,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-6-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-6-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -1187,7 +1653,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-7-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-7-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -1253,7 +1719,7 @@
                         </div>
                         <div class="col-12 mt-1">
                          Marital Status:
-                          <select name="o-8-Disabling_Condition" id="" class="form-control ">
+                          <select name="o-8-Marital_Status" id="" class="form-control ">
                             <option value="">None</option>
                             <option value="Divorced">Divorced</option>
                             <option value="Legally Separated">Legally Separated</option>
@@ -1291,14 +1757,6 @@
 
 
 
-
-
-
-
-
-
-
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -1328,7 +1786,7 @@
        document.getElementById("today-date").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
        
 
-      //$("#other-info-1").hide();
+      $("#other-info-1").hide();
      
 
 
