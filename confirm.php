@@ -6,7 +6,7 @@
 
 		session_start();
 		$text = $_SESSION['text'];
-		$name = $_SESSION['name'];
+		$a_f_name = $_SESSION['name'];
 		$call = $_SESSION['call'];
 
 
