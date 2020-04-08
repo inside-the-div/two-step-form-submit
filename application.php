@@ -433,23 +433,11 @@
      $text .= '<br>';
 
 
-
-     require('WriteHTML.php');
-
-     
-     $name = 'C:/xampp/htdocs/pdf/nasir/'.$a_f_name.'_'.substr($call,7).'.pdf';
-
-
-     $pdf = new PDF_HTML();
-     // First page
-     $pdf->AddPage();
-     $pdf->SetFont('Arial','',16);
-     $pdf->WriteHTML($text);
-     $pdf->Output($name,'F');
-
-
-
-
+     session_start();
+     $_SESSION['text'] = $text;
+     $_SESSION['name'] = $a_f_name;
+     $_SESSION['call'] = $call;
+     header('Location: confirm.php');
 
          
   }
