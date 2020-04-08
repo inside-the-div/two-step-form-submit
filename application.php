@@ -437,6 +437,7 @@
      $_SESSION['text'] = $text;
      $_SESSION['name'] = $a_f_name.'_'.$a_l_name;
      $_SESSION['call'] = $_POST['security'];
+
      header('Location: confirm.php');
 
          
@@ -478,12 +479,12 @@
       <div class="col-12">
         <div class="cards p-3">
           
-          <a href="index.php" class="button mb-3">Back</a>
+          
 
           <form action="" method="post">
             <!-- personal info start -->
             <div id="personal-info">
-
+              <a href="index.php" class="button mb-3">Back</a>
               <div class="row">
                 <div class="col-12 col-lg-8">
                   <h5>Personal information</h5>
@@ -1736,7 +1737,15 @@
 
   
               <div class="row">
-                <div class="col-12">
+
+                <div class="col-6">
+                  <div class="text-left">
+                   <button class="button" id="prev">Back</button>
+                  </div>
+                </div>
+
+
+                <div class="col-6">
                   <div class="text-right">
                     <input type="submit" name="submit" class="button input-btn">
                   </div>
@@ -1872,8 +1881,6 @@
             }
           }
 
-
-
           $("#other-info-1").show();
           $("#personal-info").hide();
         }else{
@@ -1888,7 +1895,7 @@
       })
 
 
-      $("#prev-to-personal").click(function(e){
+      $("#prev").click(function(e){
          e.preventDefault();
           $("#other-info-1").hide();
           $("#personal-info").show();
