@@ -375,7 +375,7 @@
 
      $other = 0;
      for($i=1;$i<8;$i++){
-
+        $name = '';
         if($_POST['o-'.$i.'-f-name'] != ''){
 
           $other++;
@@ -1814,7 +1814,7 @@
         var phone = $("#phone");
 
         if(phone.val() != ''){
-          if(phone.val().length > 9){
+          if(phone.val().length > 11){
             return phone;
           }
         }
