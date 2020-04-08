@@ -1,7 +1,177 @@
 <?php 
 
   if(isset($_POST['submit'])){
-     print_r($_POST);
+     // print_r($_POST);
+
+    $a_f_name = $_POST['f-name'];
+    $a_m_name = $_POST['m-name'];
+    $a_l_name = $_POST['l-name'];
+
+    if($a_m_name != ''){
+      $applicant_name = $a_f_name.' '.$a_m_name.' '.$a_l_name;
+    }else{
+      $applicant_name = $a_f_name.' '.$a_l_name;
+    }
+
+    
+    // end applicant name 
+
+    $p_l_1 = $_POST['p_l_1'];
+    $p_l_2 = $_POST['p_l_2'];
+    $physical_address = $p_l_1.'<br>'.$p_l_2;
+    $physical_address .= '<br>';
+    $physical_address .= 'City: '.$_POST['p_city'];
+    $physical_address .= '<br>';
+    $physical_address .= 'State: '.$_POST['p_state'];
+    $physical_address .= '<br>';
+    $physical_address .= 'Zipcode: '.$_POST['p_zip'];
+    //physical address
+
+    $m_l_1 = $_POST['m_l_1'];
+    $m_l_2 = $_POST['m_l_2'];
+    $mailing_address = $m_l_1.'<br>'.$m_l_2;
+    $mailing_address .= '<br>';
+    $mailing_address .= 'City: '.$_POST['m_city'];
+    $mailing_address .= '<br>';
+    $mailing_address .= 'State: '.$_POST['m_state'];
+    $mailing_address .= '<br>';
+    $mailing_address .= 'Zipcode: '.$_POST['m_zip'];
+    // //milling address
+
+
+
+     $text = "";
+     $text .= "Personal information                 ".$_POST['today'];
+     $text .= '<br>';
+     $text .= '<hr>';
+
+     $text .= "Applicant First Name: ".$applicant_name;
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .= "Date of birth: ".$_POST['a_date_of_birth'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .= "Social Security Number: ".$_POST['security'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .='Phycial Address: '.$physical_address;
+     $text .= '<br>';
+     $text .= '<br>'
+     if($mailing_address != ''){
+      $text .='Mailing Address: '.$mailing_address;
+      $text .= '<br>';
+      $text .= '<br>'
+     }
+
+     $text .="Driver's License: ".$_POST['d_license'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .='Expiration: '.$_POST['expiration'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     if($_POST['phone'] != ''){
+      $text .='Home Phone: '.$_POST['phone'];
+      $text .= '<br>';
+      $text .= '<br>';
+     }
+
+     $text .=' Call: '.$_POST['call'];
+     $text .= '<br>';
+     $text .= '<br>';
+     $text .=' Email: '.$_POST['email'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Demographics ';
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Gender: '.$_POST['gender'];
+     $text .= '<br>';
+     $text .= '<br>'; 
+
+     $text .= 'Disabling Condition: '.$_POST['Disabling_Condition'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Marital Status: '.$_POST['Marital_Status'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     if($_POST['Primary_Language'] != ''){
+       $text .= 'Primary Language: '.$_POST['Primary_Language'];
+       $text .= '<br>';
+       $text .= '<br>';
+    }
+
+     $text .= 'Household Type: '.$_POST['Household_Type'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .= 'Housing Type: '.$_POST['Housing_Type'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .= 'Education Highest Grade Completed: '.$_POST['Education_Highest_Grade_Completed'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .= 'Military Status: '.$_POST['Military_Status'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+    
+     
+
+     $text .='Direct Purchase: '.$_POST['Direct_Purchase'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .='Employment Based: '.$_POST['Employment_Based'];   
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .='Medicaid: '.$_POST['Medicaid'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .='Medicare: '.$_POST['Medicare'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .='Military Health Care: '.$_POST['Military_Health_Care'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+
+     $text .='State Children s Health Insurance: '.$_POST['S_Health_Insurance'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     
+     $text .='State Health Insurance Adult: '.$_POST['State_Health_Insurance_Adult'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Race:  '.$_POST['Race'];
+     $text .= '<br>';
+     $text .= '<br>';
+
+     $text .= 'Ethnicity:  '.$_POST['Ethnicity'];
+     $text .= '<br>';
+     $text .= '<br>';
+      
+
+
+
+    
   }
 
 
@@ -24,6 +194,18 @@
       background: #f1f1f1;
     }
 
+
+
+    .border {
+        outline: none !important;
+        border:1px solid red !important;
+        box-shadow: 0 0 5px red !important;
+    }
+      input:focus {
+          outline: none !important;
+      }
+
+
   </style>
 </head>
 <body>
@@ -44,19 +226,19 @@
                   <h5>Personal information</h5>
                 </div>
                 <div class="col-12 col-lg-4">
-                  <input id="today-date" required type="date" class="form-control input-field" name="today" value="">
+                  <input id="today-date" required type="date" class="form-control input-field " name="today" value="">
                 </div>
               </div>
 
               <div class="row mt-3">
                 <div class="col-lg-4">
                   Applicant First Name <br>
-                  <input type="text" required name="f-name" class="form-control input-field">
+                  <input type="text" required name="f-name" class=" form-control input-field">
                 </div>
 
                 <div class="col-lg-4">
                   Applicant Middle Name <br>
-                  <input type="text" required name="m-name" class="form-control input-field">
+                  <input type="text"  name="m-name" class="form-control">
                 </div>
 
                 <div class="col-lg-4">
@@ -119,27 +301,27 @@
 
                   <div class="row mt-2">
                     <div class="col-4">Address line 1</div>
-                    <div class="col-8"><input type="text" required name="m_l_1" class="form-control input-field"></div>
+                    <div class="col-8"><input type="text"  name="m_l_1" class="form-control "></div>
                   </div>
 
                   <div class="row mt-2">
                     <div class="col-4">Address line 2</div>
-                    <div class="col-8"><input type="text"  name="m_l_1" class="form-control"></div>
+                    <div class="col-8"><input type="text"  name="m_l_2" class="form-control"></div>
                   </div>
 
                   <div class="row mt-2">
                     <div class="col-4">City</div>
-                    <div class="col-8"><input type="text" required name="m_city" class="form-control input-field"></div>
+                    <div class="col-8"><input type="text"  name="m_city" class="form-control "></div>
                   </div>
 
                   <div class="row mt-2">
                     <div class="col-4">State</div>
-                    <div class="col-8"><input type="text" required name="m_state" class="form-control input-field"></div>
+                    <div class="col-8"><input type="text"  name="m_state" class="form-control "></div>
                   </div>
 
                   <div class="row mt-2">
                     <div class="col-4">Zipcode (<span class="text-info">Max: 5 digit</span>)</div>
-                    <div class="col-8"><input type="text" required name="m_zipcode" class="form-control input-field" id="m_zip"></div>
+                    <div class="col-8"><input type="text"  name="m_zipcode" class="form-control" id="m_zip"></div>
                   </div>
 
                 </div>
@@ -156,10 +338,10 @@
 
               <div class="row mt-2">
                 <div class="col-12 col-lg-4">
-                  Home phone (<span class="text-info">Must: 11 digit</span>) <input class="form-control input-field" type="text" required name="phone" id="phone">
+                  Home phone (<span class="text-info">Must: 11 digit</span>) <input class="form-control " type="text"  name="phone" id="phone">
                 </div>
                 <div class="col-12 col-lg-4">
-                   Call  : <input class="form-control input-field" type="text" required name="call" id="call">
+                   Call (<span class="text-info">Must: 11 digit</span>) : <input class="form-control input-field" type="text" required name="call" id="call">
                 </div>
 
                 <div class="col-12 col-lg-4">
@@ -195,7 +377,7 @@
 
                 <div class="col-12 col-lg-3">
                  Marital Status:
-                  <select name="Disabling_Condition" id="" class="form-control input-field">
+                  <select name="Marital_Status" id="" class="form-control input-field">
                     <option value="">None</option>
                     <option value="Divorced">Divorced</option>
                     <option value="Legally Separated">Legally Separated</option>
@@ -208,7 +390,7 @@
                 </div>
 
                 <div class="col-12 col-lg-3">
-                  Primary Language:</label> <input type="text" required name="Primary_Language"  class="form-control input-field" />
+                  Primary Language:</label> <input type="text"  name="Primary_Language"  class="form-control" />
                 </div>
 
 
@@ -425,287 +607,287 @@
                         Alimony or other Spousal Support
                       </td>
 
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-1">
-                      </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-1">
+                        </td>
 
 
-                      <td colspan="2"  >
-                        Public Assistance 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-2">
-                      </td>
-                    </tr>
+                        <td colspan="2"  >
+                          Public Assistance 
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-2">
+                        </td>
+                      </tr>
 
 
-                    <tr>
-                      <td colspan="2"  >
-                        Black Lung
-                      </td>
+                      <tr>
+                        <td colspan="2"  >
+                          Black Lung
+                        </td>
 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-3" >
-                      </td>
-
-
-                      <td colspan="2"  >
-                        Rental Income 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-4" >
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="2"  >
-                        Child Support
-                      </td>
-
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-5" >
-                      </td>
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-3" >
+                        </td>
 
 
-                      <td colspan="2"  >
-                        Retirement Income from Social Security 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-6" >
-                      </td>
-                    </tr>             
-                    <tr>
-                      <td colspan="2"  >
-                        Earnings
-                      </td>
+                        <td colspan="2"  >
+                          Rental Income 
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-4" >
+                        </td>
+                      </tr>
 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-7" >
-                      </td>
+                      <tr>
+                        <td colspan="2"  >
+                          Child Support
+                        </td>
 
-
-                      <td colspan="2"  >
-                        Royalties
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-8" >
-                      </td>
-                    </tr>             
-
-                    <tr>
-                      <td colspan="2"  >
-                        Earnings
-                      </td>
-
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-7" >
-                      </td>
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-5" >
+                        </td>
 
 
-                      <td colspan="2"  >
-                        Royalties
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-8" >
-                      </td>
-                    </tr>
+                        <td colspan="2"  >
+                          Retirement Income from Social Security 
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-6" >
+                        </td>
+                      </tr>             
+                      <tr>
+                        <td colspan="2"  >
+                          Earnings
+                        </td>
 
-                    <tr>
-                      <td colspan="2"  >
-                        Educational Assistance
-                      </td>
-
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-9" >
-                      </td>
-
-
-                      <td colspan="2"  >
-                        Short Term Disability
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-10" >
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="2"  >
-                        EITC 
-                      </td>
-
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-11" >
-                      </td>
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-7" >
+                        </td>
 
 
-                      <td colspan="2"  >
-                        Social Security Disability Income (SSDI)
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-12" >
-                      </td>
-                    </tr>
+                        <td colspan="2"  >
+                          Royalties
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-8" >
+                        </td>
+                      </tr>             
 
-                    <tr>
-                      <td colspan="2"  >
-                        Estate/Trust
-                      </td>
+                      <tr>
+                        <td colspan="2"  >
+                          Earnings
+                        </td>
 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-13" >
-                      </td>
-
-
-                      <td colspan="2"  >
-                        State Assistance (IS General)
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-14" >
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="2"  >
-                        Interest/Dividends
-                      </td>
-
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-15" >
-                      </td>
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-7" >
+                        </td>
 
 
-                      <td colspan="2"  >
-                        Supplemental Security Income (SSI)
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-16" >
-                      </td>
-                    </tr>             
+                        <td colspan="2"  >
+                          Royalties
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-8" >
+                        </td>
+                      </tr>
 
-                    <tr>
-                      <td colspan="2"  >
-                        Long Term Disability
-                      </td>
+                      <tr>
+                        <td colspan="2"  >
+                          Educational Assistance
+                        </td>
 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-17" >
-                      </td>
-
-
-                      <td colspan="2"  >
-                        TANF
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-18" >
-                      </td>
-                    </tr>
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-9" >
+                        </td>
 
 
-                    <tr>
-                      <td colspan="2"  >
-                        Non Cash Benefits
-                      </td>
+                        <td colspan="2"  >
+                          Short Term Disability
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-10" >
+                        </td>
+                      </tr>
 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-19" >
-                      </td>
+                      <tr>
+                        <td colspan="2"  >
+                          EITC 
+                        </td>
 
-
-                      <td colspan="2"  >
-                        Unemployment Insurance
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-20" >
-                      </td>
-                    </tr>
-
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-11" >
+                        </td>
 
 
-                    <tr>
-                      <td colspan="2"  >
-                        Other Income Source
-                      </td>
+                        <td colspan="2"  >
+                          Social Security Disability Income (SSDI)
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-12" >
+                        </td>
+                      </tr>
 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-21" >
-                      </td>
+                      <tr>
+                        <td colspan="2"  >
+                          Estate/Trust
+                        </td>
 
-
-                      <td colspan="2"  >
-                        VA Non-Service Connected Disability
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-22" >
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="2"  >
-                        Outside Assistance
-                      </td>
-
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-23" >
-                      </td>
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-13" >
+                        </td>
 
 
-                      <td colspan="2"  >
-                        VA Service Connected Disability 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-24" >
-                      </td>
-                    </tr>
+                        <td colspan="2"  >
+                          State Assistance (IS General)
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-14" >
+                        </td>
+                      </tr>
 
-                    <tr>
-                      <td colspan="2"  >
-                        Pension/Retirement
-                      </td>
+                      <tr>
+                        <td colspan="2"  >
+                          Interest/Dividends
+                        </td>
 
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-25" >
-                      </td>
-
-
-                      <td colspan="2"  >
-                        Veteran’s Benefits
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-26" >
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="2"  >
-                        Private Disability Insurance
-                      </td>
-
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-27" >
-                      </td>
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-15" >
+                        </td>
 
 
-                      <td colspan="2"  >
-                        Worker’s Compensation
-                      </td>
-                      <td colspan="1"  class="text-center">
-                        <input type="text" class="input-field" required name="income-28" >
-                      </td>
-                    </tr>
+                        <td colspan="2"  >
+                          Supplemental Security Income (SSI)
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-16" >
+                        </td>
+                      </tr>             
+
+                      <tr>
+                        <td colspan="2"  >
+                          Long Term Disability
+                        </td>
+
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-17" >
+                        </td>
+
+
+                        <td colspan="2"  >
+                          TANF
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-18" >
+                        </td>
+                      </tr>
+
+
+                      <tr>
+                        <td colspan="2"  >
+                          Non Cash Benefits
+                        </td>
+
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-19" >
+                        </td>
+
+
+                        <td colspan="2"  >
+                          Unemployment Insurance
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-20" >
+                        </td>
+                      </tr>
+
+
+
+                      <tr>
+                        <td colspan="2"  >
+                          Other Income Source
+                        </td>
+
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-21" >
+                        </td>
+
+
+                        <td colspan="2"  >
+                          VA Non-Service Connected Disability
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-22" >
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2"  >
+                          Outside Assistance
+                        </td>
+
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-23" >
+                        </td>
+
+
+                        <td colspan="2"  >
+                          VA Service Connected Disability 
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-24" >
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2"  >
+                          Pension/Retirement
+                        </td>
+
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-25" >
+                        </td>
+
+
+                        <td colspan="2"  >
+                          Veteran’s Benefits
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-26" >
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2"  >
+                          Private Disability Insurance
+                        </td>
+
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-27" >
+                        </td>
+
+
+                        <td colspan="2"  >
+                          Worker’s Compensation
+                        </td>
+                        <td colspan="1"  class="text-center">
+                          <input type="number" class="input-field"  name="income-28" >
+                        </td>
+                      </tr>
 
 
                     <tr>
@@ -1068,10 +1250,16 @@
           $("#personal-info").hide();
           $("#other-info-2").hide();
         }else{
+          element.addClass('border');
           element.focus();
+
+          setTimeout(function(){ 
+            element.removeClass('border')
+           }, 3000);
+          //console.log(element);
         }
 
-         console.log(element);
+         
       })
 
 
@@ -1087,7 +1275,12 @@
           $("#personal-info").hide();
           $("#other-info-2").show();
         }else{
+          element.addClass('border')
           element.focus();
+          setTimeout(function(){ 
+            element.removeClass('border')
+           }, 3000);
+          
         }
 
       })
